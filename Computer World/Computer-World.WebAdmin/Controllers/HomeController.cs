@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Computer_World.web.Models;
 
-namespace Computer_World.web.Controllers
+namespace Computer_World.WebAdmin.Controllers
 {
-    public class ProductosController : Controller
+    public class HomeController : Controller
     {
-        // GET: Productos
+        // GET: Home
         public ActionResult Index()
         {
-            
             return View();
         }
     }
