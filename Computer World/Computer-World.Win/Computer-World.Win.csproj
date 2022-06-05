@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Computer-World.BL\Computer-World.BL.csproj">
+      <Project>{e536c637-939b-4aaf-912f-5100be28cfe0}</Project>
+      <Name>Computer-World.BL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

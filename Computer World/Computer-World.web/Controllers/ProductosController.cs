@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Computer_World.BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Computer_World.web.Models;
+
 
 namespace Computer_World.web.Controllers
 {
@@ -12,8 +13,9 @@ namespace Computer_World.web.Controllers
         // GET: Productos
         public ActionResult Index()
         {
-            
-            return View();
+            var productosBL = new ProductosBL();
+            var listadeProductos = productosBL.ObtenerProductos();
+            return View(listadeProductos);
         }
     }
 }

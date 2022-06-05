@@ -1,4 +1,5 @@
 ﻿using System;
+using Computer_World.BL;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,12 @@ namespace Computer_World.Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hola");
+            var productosBL = new ProductosBL();
+            var listadeProductos = productosBL.ObtenerProductos();
+            foreach(var producto in listadeProductos)
+            {
+                MessageBox.Show(producto.Descripcion);
+            }
         }
     }
 }
