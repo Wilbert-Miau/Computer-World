@@ -25,14 +25,29 @@ namespace Computer_World.WebAdmin.Controllers
 
         public ActionResult Crear()
         {
+            
             var nuevaCategoria = new Categoria();
             return View(nuevaCategoria);
         }
         [HttpPost]
         public ActionResult Crear(Categoria categoria)
         {
-            _categoriasBL.GuardarCategoria(categoria);
-            return RedirectToAction("Index");
+            //validar si el modelo está  bien
+            if (ModelState.IsValid) // si descripcion viene bien es verdadero sino  es falso
+            {
+
+                if (categoria.Descripcion != categoria.Descripcion.Trim())
+                {
+                    ModelState.AddModelError("Descripcion","La descripcion no debe tener espacios al principio o al final");
+                    return View(categoria);
+                }
+
+
+                _categoriasBL.GuardarCategoria(categoria);
+                return RedirectToAction("Index"); //regrasar a index
+            }
+            return View(categoria); //regresa a la misma categoria
+            
         }
 
         public ActionResult Editar(int id)
@@ -43,8 +58,23 @@ namespace Computer_World.WebAdmin.Controllers
         [HttpPost]
         public ActionResult Editar (Categoria categoria)
         {
-            _categoriasBL.GuardarCategoria(categoria);
-            return RedirectToAction("Index");
+
+            //validar si el modelo está  bien
+            if (ModelState.IsValid) // si descripcion viene bien es verdadero sino  es falso
+            {
+
+                if (categoria.Descripcion != categoria.Descripcion.Trim())
+                {
+                    ModelState.AddModelError("Descripcion", "La descripcion no debe tener espacios al principio o al final");
+                    return View(categoria);
+                }
+
+
+                _categoriasBL.GuardarCategoria(categoria);
+                return RedirectToAction("Index"); //regrasar a index
+            }
+            return View(categoria); //regresa a la misma categoria
+
         }
 
         public ActionResult Detalle(int id)
