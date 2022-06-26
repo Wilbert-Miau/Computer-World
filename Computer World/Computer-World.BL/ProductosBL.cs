@@ -8,8 +8,8 @@ namespace Computer_World.BL
 {
     public class ProductosBL
     {
-        Contexto _contexto; //variable global
-        public List<Producto> ListadeProductos { get; set; }
+        Contexto _contexto; //variable global conexion a la base de datos
+        public List<Producto> ListadeProductos { get; set; }  // lista vacia para guardar los datos
 
 
         public ProductosBL()
@@ -21,7 +21,7 @@ namespace Computer_World.BL
 
         public List<Producto> ObtenerProductos()
         {
-            ListadeProductos = _contexto.Productos
+            ListadeProductos = _contexto.Productos 
                 .Include("Categoria")
                 .ToList(); //igualar para retornar la variable mas facil de entender
             return ListadeProductos;   
@@ -40,6 +40,7 @@ namespace Computer_World.BL
                 productoExistente.Descripcion = producto.Descripcion;
                 productoExistente.Precio = producto.Precio;
                 productoExistente.UrlImagen = producto.UrlImagen;
+                
 
             }
             _contexto.SaveChanges();
