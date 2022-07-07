@@ -27,7 +27,7 @@ namespace Computer_World.WebAdmin.Controllers
         }
         public ActionResult Crear()
         { var nuevaOrden = new Orden();
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
             return View(nuevaOrden);
         }
@@ -45,7 +45,7 @@ namespace Computer_World.WebAdmin.Controllers
                 _ordenesBL.GuardarOrden(orden);
                 return RedirectToAction("Index");
             }
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre",orden.ClienteId);
             return View(orden);
         }
@@ -53,7 +53,7 @@ namespace Computer_World.WebAdmin.Controllers
         public ActionResult Editar(int id)
         {
             var orden = _ordenesBL.ObtenerOrden(id);
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre",orden.ClienteId);
             return View(orden);
 
@@ -72,7 +72,7 @@ namespace Computer_World.WebAdmin.Controllers
                 _ordenesBL.GuardarOrden(orden);
                 return RedirectToAction("Index");
             }
-            var clientes = _clientesBL.ObtenerClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre",orden.ClienteId);
             return View(orden);
         }

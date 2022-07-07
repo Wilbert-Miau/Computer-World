@@ -23,8 +23,20 @@ namespace Computer_World.BL
         {
             ListadeProductos = _contexto.Productos 
                 .Include("Categoria")
+                .OrderBy(r=> r.Categoria.Descripcion)
+                .ThenBy(r=>r.Descripcion)
                 .ToList(); //igualar para retornar la variable mas facil de entender
             return ListadeProductos;   
+        }
+
+        public List<Producto> ObtenerProductosActivos()
+        {
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .OrderBy(r=>r.Descripcion)
+                .Where(r => r.Activo == true)
+                .ToList(); //igualar para retornar la variable mas facil de entender
+            return ListadeProductos;
         }
 
         public void GuardarProductos(Producto producto)

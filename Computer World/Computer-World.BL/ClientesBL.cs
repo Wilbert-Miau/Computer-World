@@ -19,10 +19,21 @@ namespace Computer_World.BL
 
         public List<Cliente> ObtenerClientes()
         {
-            ListadeCLientes = _contexto.Clientes.ToList(); //obtiene los datos de los clientes en la base de datos
+            ListadeCLientes = _contexto.Clientes
+                .OrderBy(r => r.Nombre)
+                .ToList(); //obtiene los datos de los clientes en la base de datos
             return ListadeCLientes;
         }
-        
+
+        public List<Cliente> ObtenerClientesActivos()
+        {
+            ListadeCLientes = _contexto.Clientes
+                .Where(c => c.Activo==true)
+                .OrderBy(r=> r.Nombre)
+                .ToList(); //obtiene los datos de los clientes en la base de datos
+            return ListadeCLientes;
+        }
+
         public void GuardarCliente(Cliente cliente)
         {
             if (cliente.Id == 0)
