@@ -8,8 +8,11 @@ using System.Web.Mvc;
 
 namespace Computer_World.WebAdmin.Controllers
 {
+    [Authorize]
+
     public class CategoriasController : Controller
     {
+        
         CategoriasBL _categoriasBL;
         public CategoriasController() //constructor
         {

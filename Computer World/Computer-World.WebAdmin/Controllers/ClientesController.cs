@@ -7,9 +7,11 @@ using System.Web.Mvc;
 
 namespace Computer_World.WebAdmin.Controllers
 {
+    [Authorize]
     public class ClientesController : Controller
     {
         ClientesBL _clientesBL;
+        
         public ClientesController()
         {
             _clientesBL = new ClientesBL(); //instanciando ClientesBL
