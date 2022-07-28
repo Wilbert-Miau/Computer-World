@@ -19,10 +19,11 @@ namespace Computer_World.BL
         public bool Autorizar(string nombreusuario, string contrasena)
         {
             var contrasenaEncriptada = Encriptar.CodificarContrasena(contrasena);
-            var usuario = _contexto.Ususarios.
-                FirstOrDefault(r => r.Nombre == nombreusuario
-            && r.Contrasena == contrasenaEncriptada);
 
+            var usuario = _contexto.Usuarios.FirstOrDefault(r => r.Nombre == nombreusuario && r.Contrasena == contrasenaEncriptada);
+
+
+            
             if (usuario!= null)
             {
                 return true;

@@ -26,6 +26,6 @@ namespace Computer_World.BL
         public DbSet<Orden> Ordenes { get; set; }
         public DbSet<OrdenDetalle> OrdenDetalle { get; set; }
 
-        public DbSet<Usuario> Ususarios { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
