@@ -64,6 +64,9 @@ namespace Computer_World.BL
             return producto;
         }
 
+     
+
+
         public void EliminarProducto(int id)
         {
             var producto = _contexto.Productos.Find(id);

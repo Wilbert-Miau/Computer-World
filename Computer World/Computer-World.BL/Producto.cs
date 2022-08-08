@@ -31,5 +31,33 @@ namespace Computer_World.BL
         [Display(Name = "Imagen")]
         public string UrlImagen { get; set; }
         public bool Activo { get; set; }
+
+
+
+        public void AgregarAlCarrito(int id, int carritoId)
+        {
+            OrdenesBL orden = new OrdenesBL();
+
+            Orden carrito;
+           
+            carrito = orden.ObtenerOrden(carritoId);
+           
+            ProductosBL productosBL = new ProductosBL();
+            var producto = productosBL.ObtenerProducto(id);
+            
+            carrito.Cliente.Nombre = "deafult";
+            carrito.ClienteId = 1;
+
+            
+            var carritodetalle = new OrdenDetalle();
+            carritodetalle.OrdenId = carrito.Id;
+            carritodetalle.Cantidad = 5;
+            carritodetalle.ProductoId = id;
+            carritodetalle.Precio = producto.Precio;
+            carritodetalle.Producto = producto;
+            carritodetalle.Total = carritodetalle.Cantidad * carritodetalle.Precio;
+      
+
+        }
     }
 }

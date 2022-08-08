@@ -14,6 +14,17 @@ namespace Computer_World.web.Controllers
             ViewBag.adminWebsiteUrl= ConfigurationManager.AppSettings["adminWebsiteUrl"];
             return View(listadeProductos);
             
+
+            //cliente deafult
+            //boton añadir al carrito en cada producto
+        }
+
+        [HttpPost]
+        public ActionResult Agregar(int id)
+        {
+            var producto = new Producto();
+            producto.AgregarAlCarrito(id,2);
+            return View();
         }
     }
 }

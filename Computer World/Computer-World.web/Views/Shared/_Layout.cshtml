@@ -49,15 +49,29 @@
                 <div class="col-md-12">
                     <div class="header-left">
                         <div class="logo">
-                            <a href="index.html"><img src="~/images/logo.png" alt="" /></a>
+                            <a href="/"><img src="~/images/logo.png" alt="" /></a>
                         </div>
                         <div class="menu">
                             <a class="toggleMenu" href="#"><img src="~/images/nav.png" alt="" /></a>
                             <ul class="nav" id="nav">
-                                <li class="current"><a href="shop.html">Shop</a></li>
+                                <li class="glyphicon-font"><a href="/">Inicio</a></li>
                                <li><a href="team.html">Team</a></li>
                                 
-                                <li><a href="contact.html">Contact</a></li>
+                                
+
+                                
+                            <li class="active">
+                                <a href="@Url.Action("Miorden","Carrito")" class="btn btn-info btn-lg">
+
+                                    <span class="glyphicon glyphicon-shopping-cart" style="color:gold" >
+
+                                    </span> Carrito <span class="badge">@Session["contador"]</span>
+                                </a>
+                                   
+
+                            </li>
+
+
                                 <div class="clear"></div>
                             </ul>
                             <script type="text/javascript" src="~/js/responsive-nav.js"></script>

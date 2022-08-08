@@ -112,7 +112,7 @@
                                 <span class="reducedfrom">L @(producto.Precio * 1.25)</span>
                                 <span class="actual">L @producto.Precio</span><br>
                                 <ul class="buttons">
-                                    <li class="cart"><a href="#">Add To Cart</a></li>
+                                    <li class="cart"><a href="#">Añadir al carrito</a></li>
                                     <li class="shop_btn"><a href="#">Read More</a></li>
                                     <div class="clear"> </div>
                                 </ul>
@@ -140,17 +140,30 @@
                         <a href="~/single.html">
                             <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" class="img-responsive" alt="" />
                             <span class="new-box">
-
+                               
+                                
                                 <div class="shop_desc">
                                     <h3><a href="#">@producto.Descripcion</a></h3>
 
 
                                     <span class="actual">L @producto.Precio</span><br>
-                                    <ul class="buttons">
-                                        <li class="cart"><a href="#">Add To Cart</a></li>
-                                        <li class="shop_btn"><a href="#">Read More</a></li>
-                                        <div class="clear"> </div>
-                                    </ul>
+
+                                    <a id="btn_add" href="@Url.Action("Agregar", "Carrito", new { id=producto.Id})" class="btn btn-info btn-lg" style="margin-left:60px">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span> Añadir al carrito
+                                    </a>
+
+                                    @* <ul class="buttons">
+               <li class="cart"><a href="~/Carrito/Agregar/@producto.Id">Add To jajajajjajaCart</a></li>
+
+               <li class="shop_btn"><a href="#">Read More</a></li>
+               <div class="clear"> </div>
+                                         <input type="submit" name="answer" value="@producto.Id" class="btn btn-success"
+                                           formaction="Agregar" formmethod="post"/>
+
+
+                                         @Html.ActionLink("agregar a c","Carrito","Agregar",null,1)
+
+        </ul>*@
                                 </div>
                         </a>
                     </div>
